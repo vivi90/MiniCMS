@@ -6,5 +6,5 @@ with Multi-Language-Support and Search Engine optimized URLs.
 
 Requirements
 ------------
-* PHP 5.4.0 or above
+* PHP 5.5.0 or above
 * MySQL
