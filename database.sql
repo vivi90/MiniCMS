@@ -109,7 +109,6 @@ DROP TABLE IF EXISTS `pages`;
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL,
   `language` varchar(2) NOT NULL,
-  `route` varchar(2048) NOT NULL,
   `caption` varchar(100) NOT NULL,
   `title` varchar(100) NOT NULL,
   `metatags` text,
@@ -127,6 +126,30 @@ CREATE TABLE `pages` (
 LOCK TABLES `pages` WRITE;
 /*!40000 ALTER TABLE `pages` DISABLE KEYS */;
 /*!40000 ALTER TABLE `pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `routes`
+--
+
+DROP TABLE IF EXISTS `routes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `routes` (
+  `url` varchar(512) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  `language` varchar(2) NOT NULL,
+  PRIMARY KEY (`url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `routes`
+--
+
+LOCK TABLES `routes` WRITE;
+/*!40000 ALTER TABLE `routes` DISABLE KEYS */;
+/*!40000 ALTER TABLE `routes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -195,4 +218,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-20  3:11:09
+-- Dump completed on 2017-09-20 17:36:36
