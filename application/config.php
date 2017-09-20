@@ -15,6 +15,7 @@ return array(
 'webmaster' => 'Vivien Richter',
 'webmaster_email' => 'vivien-richter@outlook.de',
 'project_name' => 'MiniCMS',
+'default_language' => 'en',
 
 'charset' => 'utf-8',
 'database_host' => 'localhost',

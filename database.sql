@@ -115,6 +115,8 @@ CREATE TABLE `pages` (
   `is_subpage_of` int(11) DEFAULT NULL,
   `owner` int(11) NOT NULL,
   `active` tinyint(1) DEFAULT NULL,
+  `is_not_found_page` tinyint(1) DEFAULT NULL,
+  `is_default_page` tinyint(1) DEFAULT NULL,
   PRIMARY KEY (`id`,`language`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -218,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-09-20 17:36:36
+-- Dump completed on 2017-09-20 23:40:28

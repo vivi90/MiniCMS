@@ -1,7 +1,7 @@
 MiniCMS
 =======
 
-This project is build as a very basic CMS-System 
+This project is build as a very basic content management system 
 with Multi-Language-Support and Search Engine optimized URLs.
 
 ***Still under development.***

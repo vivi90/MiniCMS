@@ -27,6 +27,10 @@ include $baseDirectory.DIRECTORY_SEPARATOR.'application'.DIRECTORY_SEPARATOR.'bo
 
 /**
  * Start application
+ * 
+ * @param string $baseDirectory Base directory
+ * 
+ * @return Application Instance of Application
  */
 $application = new Application($baseDirectory);
 ?>

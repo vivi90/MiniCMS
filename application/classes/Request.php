@@ -11,25 +11,32 @@ namespace MiniCMS;
 class Request
 {
 	/**
-	 * @var mixed[] User request path
+	 * @var string User request URL
 	 */
-	private $path = array();
+	private $url;
 
 	/**
 	 * @var mixed[] User request variables
 	 */
 	private $variables = array();
-
+	
+	/**
+	 * @var string Default language
+	 */
+	private $default_language;
+	
 	/**
      * Creates a new class instance
+	 * 
+	 * @param string $default_language Default language
 	 */
-	public function __construct()
+	public function __construct($default_language)
 	{
-		// Filter and parse URL to get the path
-		$path = explode('?', $_SERVER['REQUEST_URI']);
-		$path = trim($path[0], '/');
-		$path = $this->filter($path);
-		$this->path = explode('/', $path);
+		$this->default_language = $default_language;
+		// Filter URL
+		$url = explode('?', $_SERVER['REQUEST_URI']);
+		$url = trim($url[0], '/');
+		$this->url = $this->filter($url);
 		// Filter and flatten variables
 		array_walk_recursive($_REQUEST, function(&$value, &$key) use (&$variables) { $variables[$this->filter($key)] = $this->filter($value); });
 		$this->variables = $variables;
@@ -48,13 +55,13 @@ class Request
 	}
 
 	/**
-	 * Get Path
+	 * Get URL
 	 * 
-	 * @return mixed[] Path
+	 * @return string URL
 	 */
-	public function getPath()
+	public function getURL()
 	{
-		return $this->path;
+		return $this->url;
 	}
 
 	/**
@@ -77,6 +84,19 @@ class Request
 	public function getAllVariables()
 	{
 		return $this->variables;
+	}
+	
+	/**
+	 * Get user language
+	 */
+	public function getLanguage()
+	{
+		$language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+		if (ctype_alpha($language) && (strlen($language) == 2)) {
+			return $language;
+		} else {
+			return $this->default_language;
+		}
 	}
 }
 ?>
