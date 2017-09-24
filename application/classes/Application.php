@@ -50,11 +50,11 @@ class Application
 	 */
 	private $controller;
 	
-    /**
-     * Creates a new class instance
+	/**
+	 * Creates a new class instance
 	 *
 	 * @param string $baseDirectory Base directory
-     */
+	 */
 	public function __construct($baseDirectory)
 	{
 		// Initialization

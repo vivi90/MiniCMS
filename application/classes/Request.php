@@ -26,7 +26,7 @@ class Request
 	private $default_language;
 	
 	/**
-     * Creates a new class instance
+	 * Creates a new class instance
 	 * 
 	 * @param string $default_language Default language
 	 */
@@ -88,6 +88,8 @@ class Request
 	
 	/**
 	 * Get user language
+	 * 
+	 * @return string Language identifier
 	 */
 	public function getLanguage()
 	{
